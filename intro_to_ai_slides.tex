@@ -1,0 +1,495 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usepackage{graphicx,amsmath,algorithm2e,listings,xcolor,tabularx}
+\lstset{basicstyle=\ttfamily\small,keywordstyle=\color{blue}}
+
+\title{Understanding AI: From Concepts to Challenges}
+\subtitle{A Non-Technical Deep Dive}
+\author{}
+\institute{}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+% Section 1: Basics (Slides 2-4)
+\section{Core Concepts}
+\begin{frame}{What is Intelligence?}
+\begin{itemize}
+\item \textbf{Definition}: Ability to learn, solve problems, and adapt
+\item \textbf{Example}: 
+\begin{itemize}
+\item Humans: Learning to cook by trial/error
+\item Animals: Bees finding shortest route to flowers
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+% Slide 3: Human Intelligence
+\begin{frame}{Human Intelligence}
+\begin{exampleblock}{Key Traits}
+\begin{itemize}
+\item Creative problem-solving: Inventing wheels to move heavy objects
+\item Emotional understanding: Comforting a friend
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+% Slide 4: AI Definition
+\begin{frame}{What is \textit{Artificial} Intelligence (AI)?}
+\begin{itemize}
+\item \textbf{Machines mimicking human-like thinking}
+\item \textbf{Example}: 
+\begin{itemize}
+\item Email spam filters (like a postal worker sorting mail)
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+% Slide 5: Types of AI
+\section{Types of AI}
+\begin{frame}{Rule-Based vs Data-Driven AI}
+\begin{itemize}
+\item \textbf{Rule-Based}: Follows fixed instructions like a cookbook
+  \begin{itemize}
+  \item Example: Sorting names alphabetically in a contacts list
+  \end{itemize}
+\item \textbf{Data-Driven}: Learns from examples like a student
+  \begin{itemize}
+  \item Example: Netflix suggesting shows based on your watch history
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+% Slide 6: Rule-Based Subtypes
+\begin{frame}{Rule-Based AI Tasks}
+\begin{itemize}
+\item \textbf{Sorting}: Arrange data in order (e.g., price low to high)
+\item \textbf{Searching}: Find items (e.g., Ctrl+F in documents)
+\item \textbf{Clustering}: Group similar items (e.g., organizing books by genre)
+\end{itemize}
+\end{frame}
+
+% Slide 7: Supervised Learning
+\begin{frame}{Data-Driven AI: Supervised Learning}
+\begin{itemize}
+\item \textbf{Definition}: Learn from labeled examples (like flashcards)
+\item \textbf{Example}: Predicting weather (input: humidity, wind; output: rain/sun)
+\end{itemize}
+\end{frame}
+
+% Slide 8: Unsupervised Learning
+\begin{frame}{Unsupervised Learning}
+\begin{itemize}
+\item \textbf{Definition}: Find patterns without labels (like solving a puzzle blindfolded)
+\item \textbf{Example}: Grouping shoppers by buying habits (no predefined categories)
+\end{itemize}
+\end{frame}
+
+% Slide 9: Semi-Supervised Learning
+\begin{frame}{Semi-Supervised Learning}
+\begin{itemize}
+\item \textbf{Definition}: Mix of labeled + unlabeled data
+\item \textbf{Example}: Diagnosing rare diseases with 10 labeled X-rays + 1,000 unlabeled
+\end{itemize}
+\end{frame}
+
+% Slide 10: Self-Supervised Learning
+\begin{frame}{Self-Supervised Learning}
+\begin{itemize}
+\item \textbf{Definition}: Create labels from the data itself
+\item \textbf{Example}: Training a language model by hiding words (e.g., "The \_\_\_ barks" → "dog")
+\end{itemize}
+\end{frame}
+
+% Slide 11: Reinforcement Learning
+\begin{frame}{Reinforcement Learning}
+\begin{itemize}
+\item \textbf{Definition}: Learn by trial/error with rewards
+\item \textbf{Example}: Training a robot to walk (reward for moving forward, penalty for falling)
+\end{itemize}
+\end{frame}
+
+% Slide 12: Defining the Problem
+\section{How AI is Built?}
+\begin{frame}{How AI is Built?: Defining the Problem}
+\begin{itemize}
+\item \textbf{Inputs}: What the AI receives (e.g., user's age, income)
+\item \textbf{Outputs}: What it produces (e.g., loan approved: yes/no)
+\item \textbf{Constraints}: Limits (e.g., decision in less than 1 second)
+\end{itemize}
+\end{frame}
+
+% Slide 13: Evaluation Metrics
+\begin{frame}{Evaluation Metrics}
+\begin{itemize}
+\item \textbf{Functional}: Accuracy (e.g., 95\% correct predictions)
+\item \textbf{Non-Functional}: Speed (e.g., 0.2 seconds per decision)
+\end{itemize}
+\end{frame}
+
+% Slide 14: Test Cases
+\begin{frame}{Test Cases}
+\begin{itemize}
+\item \textbf{Definition}: Scenarios to test the AI
+\item \textbf{Example}: For a food-delivery app, test "order cancellation" and "payment failure"
+\end{itemize}
+\end{frame}
+
+% Slide 15: Dataset Development
+\begin{frame}{Dataset Development}
+\begin{itemize}
+\item \textbf{Size Estimation}: Guess how much data is needed
+  \begin{itemize}
+  \item Example: 10,000 images to train a cat/dog classifier
+  \end{itemize}
+\item \textbf{Raw Data Collection}: Gather initial data
+  \begin{itemize}
+  \item Example: Scrape restaurant reviews from Google Maps
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+% Slide 16: Data Filtering
+\begin{frame}{Data Filtering}
+\begin{itemize}
+\item \textbf{Definition}: Remove useless/noisy data
+\item \textbf{Example}: Deleting blurry photos from a selfie dataset
+\end{itemize}
+\end{frame}
+
+% Slide 17: Data Augmentation
+\begin{frame}{Data Augmentation}
+\begin{itemize}
+\item \textbf{Definition}: Artificially expand the dataset
+\item \textbf{Example}: Flip/rotate images to create new training examples
+\end{itemize}
+\end{frame}
+
+% Slide 18: Synthetic Data (Rule-Based)
+\begin{frame}{Rule-Based Synthetic Data}
+\begin{itemize}
+\item \textbf{Definition}: Generate data using fixed rules
+\item \textbf{Example}: Fake customer names (e.g., "John Smith", "Anna Lee")
+\end{itemize}
+\end{frame}
+
+% Slide 19: Synthetic Data (DL-Based)
+\begin{frame}{Deep Learning Synthetic Data}
+\begin{itemize}
+\item \textbf{Definition}: Use AI to create realistic data
+\item \textbf{Example}: Generating human faces with GANs (AI art)
+\end{itemize}
+\end{frame}
+
+% Slide 20: Data Preprocessing
+\begin{frame}{Data Preprocessing}
+\begin{itemize}
+\item \textbf{Definition}: Clean/format data for AI
+\item \textbf{Example}: Converting all text to lowercase for a chatbot
+\end{itemize}
+\end{frame}
+
+% Slide 21: Train/Val/Test Split
+\begin{frame}{Splitting Data}
+\begin{itemize}
+\item \textbf{Train}: Practice data (70\%)
+\item \textbf{Validation}: Tune AI (15\%)
+\item \textbf{Test}: Final exam (15\%)
+\end{itemize}
+\end{frame}
+
+% Slide 22: Model Selection
+\begin{frame}{Model Selection}
+\begin{itemize}
+\item \textbf{Rule-Based}: Fixed logic (e.g., flowchart for medical diagnosis)
+\item \textbf{Data-Driven}: Learned patterns (e.g., neural network for stock prediction)
+\end{itemize}
+\end{frame}
+
+% Slide 23: Hyperparameter Tuning
+\begin{frame}{Hyperparameter Tuning}
+\begin{itemize}
+\item \textbf{Definition}: Adjusting "knobs" for better performance
+\item \textbf{Example}: Setting how fast the AI learns (learning rate)
+\end{itemize}
+\end{frame}
+
+% Slide 24: Model Training
+\begin{frame}{Model Training}
+\begin{itemize}
+\item \textbf{Process}: Teach AI using training data
+\item \textbf{Tools}: Track experiments with MLflow/Weights \& Biases
+\end{itemize}
+\end{frame}
+
+% Slide 25: Model Validation
+\begin{frame}{Model Validation}
+\begin{itemize}
+\item \textbf{Definition}: Check performance before deployment
+\item \textbf{Example}: Testing a self-driving car in a simulator
+\end{itemize}
+\end{frame}
+
+% Slide 26: Deployment - Hardware
+\begin{frame}{Deployment: Hardware}
+\begin{itemize}
+\item \textbf{Edge}: Run on devices (e.g., face unlock on phones)
+\item \textbf{Cloud}: Run on servers (e.g., weather prediction on AWS)
+\end{itemize}
+\end{frame}
+
+% Slide 27: Deployment - Software
+\begin{frame}{Deployment: Software}
+\begin{itemize}
+\item \textbf{Webservice}: API endpoint (e.g., skin cancer detection website)
+\item \textbf{Containers}: Package AI in Docker for easy sharing
+\end{itemize}
+\end{frame}
+
+% Slide 28: Hardware Optimizations
+\begin{frame}{Hardware Optimizations}
+\begin{itemize}
+\item \textbf{TPUs}: Google’s custom chips for faster training
+\item \textbf{Tensor Cores}: Specialized units in GPUs for math
+\end{itemize}
+\end{frame}
+
+% Slide 29: Software Optimizations
+\begin{frame}{Software Optimizations}
+\begin{itemize}
+\item \textbf{Quantization}: Reduce number precision (e.g., 32-bit → 8-bit)
+\item \textbf{Kernel Fusion}: Combine operations for speed
+\end{itemize}
+\end{frame}
+
+% Slide 30: Parallelism
+\begin{frame}{Parallelism: Training and inference}
+\begin{itemize}
+\item \textbf{Data}: Split data across GPUs
+\item \textbf{Pipeline}: Process different stages simultaneously
+\end{itemize}
+\end{frame}
+
+% Slide 31: Caching
+\begin{frame}{Caching}
+\begin{itemize}
+\item \textbf{KV Caching}: Reuse past computations (e.g., ChatGPT speedup)
+\end{itemize}
+\end{frame}
+
+% Slide 32: Model Monitoring
+\begin{frame}{Model Monitoring}
+\begin{itemize}
+\item \textbf{Drift Detection}: Check if data changes over time
+\item \textbf{Example}: Spam filter failing due to new slang
+\end{itemize}
+\end{frame}
+
+% Slide 33: Model Retraining
+\begin{frame}{Model Retraining}
+\begin{itemize}
+\item \textbf{Active Learning}: Prioritize uncertain data
+\item \textbf{Example}: Labeling ambiguous medical scans first
+\end{itemize}
+\end{frame}
+
+% Slide 34: Trusted AI - Security
+\section{Retrospect on AI}
+\begin{frame}{Challenges in AI: Security}
+\begin{itemize}
+\item \textbf{Watermarking}: Embed hidden markers in AI outputs
+\item \textbf{Adversarial Defense}: Block malicious inputs
+\end{itemize}
+\end{frame}
+
+% Slide 43: Security - Model Encryption
+\begin{frame}{Encryption}
+\begin{itemize}
+\item \textbf{Definition}: Protect AI models from theft (like a locked safe)
+\item \textbf{Example}: 
+  \begin{itemize}
+  \item Encrypting a self-driving car’s AI model to prevent hacking
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+% Slide 35: Deepfakes
+\begin{frame}{Deepfakes}
+\begin{itemize}
+\item \textbf{Definition}: AI-generated fake media
+\item \textbf{Example}: Fake video of a politician making false claims
+\end{itemize}
+\end{frame}
+
+% Slide 36: Explainability
+\begin{frame}{Explainability}
+\begin{itemize}
+\item \textbf{Definition}: Understand why AI made a decision
+\item \textbf{Example}: Highlighting words that caused spam classification
+\end{itemize}
+\end{frame}
+
+% Slide 37: Formal Verification
+\begin{frame}{Formal Verification}
+\begin{itemize}
+\item \textbf{Definition}: Mathematically prove AI safety
+\item \textbf{Example}: Ensuring a robot arm never moves too fast
+\end{itemize}
+\end{frame}
+
+% Slide 38: Model Alignment
+\begin{frame}{Model Alignment}
+\begin{itemize}
+\item \textbf{Definition}: Match AI goals with human values
+\item \textbf{Example}: Chatbot refusing harmful requests
+\end{itemize}
+\end{frame}
+
+% Continue adding slides 39-43 as needed
+
+
+
+% Slide 39: Transformer on Chip
+\begin{frame}{Performant AI: Transformer on Chip}
+\begin{itemize}
+\item \textbf{Definition}: Custom chips designed for transformer models (common in language models)
+\item \textbf{Example}: 
+  \begin{itemize}
+  \item Google’s TPU v4 optimized for BERT/GPT-style models
+  \item Etched ASICs
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+% Slide 40: Kernel Graphs
+\begin{frame}{CUDA Kernel Graphs}
+\begin{itemize}
+\item \textbf{Definition}: Predefined execution plans for speed (like a recipe)
+\item \textbf{Example}: 
+  \begin{itemize}
+  \item TensorFlow using graphs to run models faster
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+% Slide 41: Tensor Parallelism
+\begin{frame}{Tensor Parallelism}
+\begin{itemize}
+\item \textbf{Definition}: Split model layers across devices (like teamwork)
+\item \textbf{Example}: 
+  \begin{itemize}
+  \item Training GPT-3 across 100+ GPUs simultaneously
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+% Slide 42: Caching - Browser
+\begin{frame}{Caching}
+\begin{itemize}
+\item \textbf{Definition}: Store data locally to avoid repeated downloads
+\item \textbf{Example}: 
+  \begin{itemize}
+  \item Voice assistant saving common responses offline
+  \item Design of KV caches in transformer models to save GPU memory and still runtime benefits
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Development Challenges}
+\begin{itemize}
+\item \textbf{Data Quality}: 
+\begin{itemize}
+\item Example: Training self-driving cars with biased urban data fails in rural areas
+\end{itemize}
+\item \textbf{Computational Costs}: 
+\begin{itemize}
+\item Example: Training ChatGPT-4 required \$100M+ in computing power
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Deployment Challenges}
+\begin{itemize}
+\item \textbf{Hardware Limitations}: 
+\begin{itemize}
+\item Example: Smart speakers struggle with complex queries due to small memory
+\end{itemize}
+\item \textbf{Ethical Concerns}: 
+\begin{itemize}
+\item Example: Facial recognition misidentifying people with darker skin tones
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Monitoring Challenges}
+\begin{itemize}
+\item \textbf{Data Drift}: 
+\begin{itemize}
+\item Example: COVID-19 pandemic made old health prediction models inaccurate
+\end{itemize}
+\item \textbf{Adversarial Attacks}: 
+%% https://www.overleaf.com/project/68287e55aca4d5a1136834fa
+\begin{itemize}
+\item Example: Adding invisible noise to stop signs to confuse self-driving cars
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Adoption Challenges}
+\begin{itemize}
+\item \textbf{User Trust}: 
+\begin{itemize}
+\item Example: Patients rejecting AI cancer diagnoses despite 98\% accuracy
+\end{itemize}
+\item \textbf{Regulatory Compliance}: 
+\begin{itemize}
+\item Example: GDPR laws forcing companies to explain AI decisions
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Environmental Impact}
+\begin{itemize}
+\item \textbf{Energy Consumption}: 
+\begin{itemize}
+\item Example: Training one AI model emits 5x car's lifetime CO\textsubscript{2}
+\end{itemize}
+\item \textbf{E-Waste}: 
+\begin{itemize}
+\item Example: Obsolete AI chips filling landfills
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Future Challenges}
+\begin{itemize}
+\item \textbf{Job Displacement}: 
+\begin{itemize}
+\item Example: AI writing tools reducing demand for junior copywriters
+\end{itemize}
+\item \textbf{Superintelligence Risks}: 
+\begin{itemize}
+\item Example: Hypothetical AI pursuing goals conflicting with human values
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+% Conclusion
+\begin{frame}{Key Takeaways}
+\begin{itemize}
+\item AI mimics human intelligence but faces real-world limitations
+\item Development requires balancing technical and ethical factors
+\item Continuous monitoring ensures reliability
+\end{itemize}
+\end{frame}
+
+\end{document}
